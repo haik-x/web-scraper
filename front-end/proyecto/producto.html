@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <title>Web Scraping App</title>
+</head>
+<body>
+    <header>
+        <h1>Web Scraping App</h1>
+    </header>
+    <nav>
+        <ul id="main-menu" class="hidden">
+            <li><a href="producto.html" id="add-product-button"> Productos </a></li>
+            <li><a href="index.html" id="find-friends-button">Buscar Amigos</a></li>
+            <li><a href="#" id="settings-button">Ajustes</a></li>
+        </ul>
+        <div id="menu-toggle">&#9776;</div>
+    </nav>
+    <main>
+        <div id="content">
+            <!-- El contenido dinámico se cargará aquí -->
+        </div>
+    </main>
+
+    <div class = "agregar">       
+        <span id = "nuevoProducto"> Agrega un Producto</span>
+        <br>
+        <span id ="nuevoLink"> Pega el link del producto... </span>
+        <input type="url" name="input">
+        <button id="botonAgregar"> Agregar</button>
+        
+    </div>
+    
+    <div class = "galeria">
+            <div class="producto" id = "1">
+               <img src="https://images.freeimages.com/variants/VZ8KRrC1agcXw91iuorUFbjj/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&w=350" alt="Producto"> </img>
+               <br>
+               <span class="precioC"> $ #### </span> 
+               <br>
+               <span class="descuento"> Descuento:  #% </span> 
+               <br>
+               <span class="nombre"> 'Nombre de Producto' </span>  
+               <br>
+               <a href="verProducto.html" id="ver"> Ver </a>
+            </div> 
+            <div class="producto" id = "2">
+                <img src="https://images.freeimages.com/images/large-previews/c0d/gerbera-series-1-1486599.jpg?fmt=webp&w=350" alt="Producto"> </img>
+                <br>
+                <span class="precioC"> $ #### </span> 
+                <br>
+                <span class="descuento"> Descuento:  #% </span> 
+                <br>
+                <span class="nombre"> 'Nombre de Producto' </span>  
+                <br>
+                <a href="verProducto.html" id="ver"> Ver </a>
+            </div>
+            <div class="producto" id = "3">
+                <img src="https://images.freeimages.com/images/large-previews/9c0/forest-1400475.jpg?fmt=webp&w=350" alt="Producto"> </img>
+                <br>
+                <span class="precioC"> $ #### </span> 
+                <br>
+                <span class="descuento"> Descuento:  #% </span> 
+                <br>
+                <span class="nombre"> 'Nombre de Producto' </span>  
+                <br>
+                <a href="verProducto.html" id="ver"> Ver </a>
+            </div>
+            <div class="producto" id = "4">
+                <img src="https://images.freeimages.com/images/large-previews/77c/nemo-the-horse-1339807.jpg?fmt=webp&w=350" alt="Producto"> </img>
+                <br>
+                <span class="precioC"> $ #### </span> 
+                <br>
+                <span class="descuento"> Descuento:  #% </span> 
+                <br>
+                <span class="nombre"> 'Nombre de Producto' </span>  
+                <br>
+                <a href="verProducto.html" id="ver"> Ver </a>
+            </div>
+    
+    </div>
+
+
+    <footer>
+        <p>&copy; 2023 Web Scraping App</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
