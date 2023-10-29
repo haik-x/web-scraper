@@ -1,0 +1,33 @@
+const { response } = require('express');
+const model = require('../models/product');
+
+class ProductController{
+
+    list(req, res){
+        res.send([]);
+    }
+
+    create(req, res){
+        
+        const { name, synopsis, genre, duration, director, actors} = req.body;
+
+        res.send([]);
+    }
+
+    view(req, res){
+
+        res.send([]);
+    }
+
+    delete(req, res){
+        res.send([]);
+    }
+
+    edit(req, res){
+        const { name, synopsis, genre, duration, director, actors} = req.body;
+
+        res.send([]);
+    }
+}
+
+module.exports = new ProductController();
