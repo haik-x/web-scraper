@@ -9,7 +9,7 @@ class ProductController{
 
     create(req, res){
         
-        const { name, synopsis, genre, duration, director, actors} = req.body;
+        const { name, price, discount, original_price, link, image} = req.body;
 
         res.send([]);
     }
@@ -24,7 +24,7 @@ class ProductController{
     }
 
     edit(req, res){
-        const { name, synopsis, genre, duration, director, actors} = req.body;
+        const { name, price, discount, before, link, image} = req.body;
 
         res.send([]);
     }
