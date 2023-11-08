@@ -4,11 +4,7 @@ const model = require('../models/user');
 class UserController{
 
     create(req, res){
-      
-        const { name, last_name, email, password, joined_date} = req.body;
-        
-        res.send([]);
-
+        res.send(req.body);
     }
 
     view(req, res){
