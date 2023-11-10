@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 
+dotenv.config();
+
 const routes = require('./routes');
 
 const app = express();
@@ -13,18 +15,20 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const mongoUrl = 'mongodb+srv://temp_user:12345@cluster0.lubpf6e.mongodb.net/web_scraper?retryWrites=true&w=majority';
+const port = process.env.PORT || 3000; //fallback, es como un or
+const secret = process.env.SECRET_KEY;
 
-
+app.use(routes);
 
 app.get('', (req, res) => {
     res.send('aqui estoy');
  });
 
-app.use(routes);
+
+const mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl).then(() => {
-    app.listen(3000, () => {
+    app.listen(port, () => {
         console.log('app is running...');
     });
 }).catch(err => {
