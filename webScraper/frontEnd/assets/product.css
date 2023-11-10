@@ -1,0 +1,92 @@
+h1 {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.verProducto {
+    border-radius: 20px;
+    margin-top: 150px;
+    margin-left: 22%;
+    width: 50%;
+    background-color: white;
+    padding: 50px;
+}
+
+.verImg {
+    border-radius: 20px;
+    width: 500px;
+    height: 600px;
+}
+
+.divImg {
+    display: inline-block;
+}
+
+.infoProducto {
+    text-align: left;
+    top: 0px;
+    display: inline-block;
+}
+
+
+#quitarProducto {
+    padding: 50px;
+    font-size: 2rem;
+}
+
+#regresar {
+    font-size: 2rem;
+}
+
+span {
+    font-weight: 400;
+    font-size: 2rem;
+    padding: 50px;
+}
+
+.verNombre {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 1100px) {
+    .verNombre{
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .verProducto {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .verProducto {
+        width: 100%;
+    }
+
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
