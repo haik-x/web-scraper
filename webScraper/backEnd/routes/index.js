@@ -5,7 +5,7 @@ const productController = require('./../src/controllers/product');
 
 //router.use('/users', authMiddleware);
 
-router.get('/user/:id',  userController.view);
+router.post('/user/login',  userController.login);
 router.post('/user', userController.create);
 router.put('/user/:id', userController.edit);
 router.delete('/user/:id', userController.delete);
