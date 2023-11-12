@@ -9,8 +9,26 @@ export async function createUser(data) {
             url: 'http://localhost:3000/user'
         });
 
-        return response; // You might want to return something useful here
+        return response; // might want to return something late (?)
     } catch (error) {
-        throw error; // Propagate the error for handling in the calling function
+        throw error; // Propagate the error 
     }
 }
+
+
+export async function loginUser(email, password) {
+    try {
+        const response = await $.ajax({
+            type: 'POST',
+            url: 'http://localhost:3000/user/login',
+            contentType: 'application/json',
+            data: JSON.stringify({ email, password }),
+            dataType: 'json',
+        });
+        return response; 
+    } catch (error) {
+        throw error; 
+    }
+}
+
+

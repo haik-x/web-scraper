@@ -57,13 +57,21 @@ $(document).ready(function () {
     form.on('submit', async function (e) {
         e.preventDefault();
 
+        clearErrorMessages();
+
         const name = $('#name1').val();
         const last_name = $('#lastName1').val();
-        const email = $('#email').val();
+        const email = $('#email1').val();
         const password = $('#Password1').val();
         const confirmed_password = $('#Password2').val();
 
-        const userModel = createUserModel(name, last_name, email, password, confirmed_password);
+
+        if (password !== confirmed_password) {
+            displayErrorMessage('Passwords do not match');
+            return;
+        }
+
+        const userModel = createUserModel(name, last_name, email, password);
 
         try {
             const responseData = await createUser(userModel);
@@ -78,4 +86,19 @@ $(document).ready(function () {
 
         $('#user-form :input').val('');
     });
+
+    function displayErrorMessage(message) {
+        // Create a div element for the error message
+        const errorMessageDiv = $('<div>').text(message).addClass('error-message');
+
+        // Append the error message div after the confirmed password input
+        $('#Password2').after(errorMessageDiv);
+    }
+
+    function clearErrorMessages() {
+    // Remove any existing error messages
+        $('.error-message').each(function() {
+        $(this).remove();
+    });
+}
 });
