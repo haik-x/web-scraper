@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 const mongoose = require('mongoose');
 
@@ -12,8 +13,15 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: 'http://127.0.0.1:8080', // Replace with the actual origin of your frontend
+    credentials: true,
+    // Add other CORS options as needed
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 const port = process.env.PORT || 3000; //fallback, es como un or
 const secret = process.env.SECRET_KEY;
