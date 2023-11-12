@@ -24,13 +24,6 @@ app.get('/', (req, res) => {
     res.send('aqui estoy');
  });
 
-
- // Agregue el app listener para poder ver desde qué puerto
- app.listen(port, () => {
-    console.log(`escuchando es puerto: ${port}`);
- })
-
-
 const mongoUrl = process.env.MONGO_URL;
 
 mongoose.connect(mongoUrl).then(() => {

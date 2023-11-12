@@ -9,8 +9,6 @@ $(document).ready(function () {
         const email = $('#email1').val();
         const password = $('#password1').val();
 
-        console.log(email,password);
-
         try {
             const responseData = await loginUser(email, password);
             window.location.href = '../views/index.html';
