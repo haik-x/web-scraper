@@ -19,13 +19,10 @@ body{
     margin-left: 22%;
     width: 50%;
     background-color: white;
-    padding: 50px;
 }
 
 .verImg {
     border-radius: 20px;
-    width: 500px;
-    height: 600px;
 }
 
 .divImg {
@@ -39,44 +36,103 @@ body{
 }
 
 
-#quitarProducto {
-    padding: 50px;
-    font-size: 2rem;
-}
-
-#regresar {
-    font-size: 2rem;
-}
-
 span {
     font-weight: 400;
-    font-size: 2rem;
     padding: 50px;
 }
 
 .verNombre {
-    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 
-@media (max-width: 1100px) {
+@media (max-width: 2500px) {
+
+    .verProducto {
+        padding: 30px;
+    }
+
     .verNombre{
-        font-size: 25px;
+        font-size: 30px;
+    }
+    span {
+        font-size: 30px;
+        line-height: 50px;
+    }
+    .verImg {
+        width: 500px;
+        height: 600px;
+    }
+
+    #quitarProducto {
+        padding: 50px;
+        font-size: 30px;
+    }
+    
+    #regresar {
+        font-size: 30px;
     }
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1800px) {
+
     .verProducto {
+        padding: 25px;
+    }
+
+    .verNombre {
+        font-size: 20px;
         width: 50%;
     }
+    span {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .verImg {
+        width: 200px;
+        height: 300px;
+    }
+
+    #quitarProducto {
+        padding: 50px;
+        font-size: 20px;
+    }
+    
+    #regresar {
+        font-size: 20px;
+    }
+
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
     .verProducto {
+        padding: 20px;
+    }
+
+    .verNombre {
+        font-size: 8px;
         width: 100%;
+    }
+
+    span {
+        font-size: 8px;
+        line-height: 20px;
+    }
+    .verImg {
+        width: 100px;
+        height: 200px;
+    }
+
+    #quitarProducto {
+        padding: 50px;
+        font-size: 8px;
+    }
+    
+    #regresar {
+        font-size: 8px;
     }
 
 }
