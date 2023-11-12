@@ -11,11 +11,36 @@ $(document).ready(function () {
 
         try {
             const responseData = await loginUser(email, password);
-            window.location.href = '../views/index.html';
+
+            $('#email1').val('');
+            $('#password1').val('');
+            if (responseData) {
+                location.assign('./../views/index.html');
+            }
         } catch (error) {
-            alert('Something went wrong');
-            console.error(error);
+            if (error.email) {
+                displayErrorMessage(error.email, 'password1');
+            } else {
+                console.log("Unexpected error structure received from the server:", error);
+            }
         }
     });
+
+    function displayErrorMessage(message, location) {
+        const errorMessageDiv = $('<div>')
+            .text(message)
+            .addClass('error-message')
+            .css('color', 'red');
+
+        $('#' + location).after(errorMessageDiv);
+    }
+
+    function clearErrorMessages() {
+        // Remove any existing error messages
+        $('.error-message').each(function () {
+            $(this).remove();
+        });
+    }
+
 });
 
