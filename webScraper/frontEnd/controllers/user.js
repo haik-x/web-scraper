@@ -11,9 +11,9 @@ export async function createUser(data) {
         return response; // might want to return something late (?)
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
-            throw error.responseJSON.errors; 
+            throw error.responseJSON.errors;
         } else {
-            throw error; 
+            throw error;
         }
 
     }
@@ -26,11 +26,11 @@ export async function loginUser(email, password) {
             type: 'POST',
             url: 'http://localhost:3000/user/login',
             contentType: 'application/json',
-            data: JSON.stringify({ email, password }),
-            dataType: 'json',
-            xhrFields: {
-                withCredentials: true
-            }
+            data: JSON.stringify({
+                email,
+                password
+            }),
+            dataType: 'json'
         });
         if (response && response.user) {
             return response.user;
@@ -40,11 +40,9 @@ export async function loginUser(email, password) {
         }
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
-            throw error.responseJSON.errors; 
+            throw error.responseJSON.errors;
         } else {
-            throw error; 
+            throw error;
         }
     }
 }
-
-

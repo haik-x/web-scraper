@@ -8,8 +8,10 @@ const secret = process.env.SECRET_KEY;
 
 class UserController {
 
-    createToken(id){
-        return jwt.sign({id},secret);
+    createToken(id) {
+        return jwt.sign({
+            id
+        }, secret);
     }
 
     handleErrors(err) {
@@ -66,7 +68,9 @@ class UserController {
 
             const token = this.createToken(user._id);
 
-            res.cookie('jwt',token,{httpOnly: true});
+            res.cookie('jwt', token, {
+                httpOnly: true
+            });
             console.log(res.getHeaders());
             res.status(201).json({
                 user: user._id

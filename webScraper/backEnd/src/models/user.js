@@ -74,7 +74,7 @@ schema.statics.login = async function (email, password) {
         email
     })
     if (user) {
-        const auth = await bcrypt.compare(password,user.password)
+        const auth = await bcrypt.compare(password, user.password)
         if (auth)
             return user;
         throw Error("incorrect password");

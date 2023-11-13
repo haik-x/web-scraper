@@ -1,4 +1,6 @@
-import { loginUser } from '../controllers/user.js';
+import {
+    loginUser
+} from '../controllers/user.js';
 
 $(document).ready(function () {
     const form = $('#login-form');
@@ -43,4 +45,3 @@ $(document).ready(function () {
     }
 
 });
-

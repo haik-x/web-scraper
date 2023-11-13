@@ -1,0 +1,215 @@
+@import url(./satoshi.css);
+
+:root {
+    --c-dark: #212529;
+    --c-brand: rgba(1, 1, 122, 1);
+    --c-brand-light: #6970dd;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #727272;
+    --font-base: "Satoshi", sans-serif;
+    --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.08);
+    --transition: all 0.5s ease;
+    --b-color: linear-gradient(120deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 35%, rgba(1, 1, 122, 1) 100%);
+    --b-color-light: linear-gradient(120deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 0%, rgba(1, 1, 122, 1) 20%);
+}
+
+body {
+    font-family: var(--font-base);
+    line-height: 1.7;
+    color: var(--c-body)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-weight: 600;
+    color: var(--c-dark);
+}
+
+a {
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-brand-light);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+/*Nav Bar*/
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--c-dark);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--c-brand);
+}
+
+/* btn */
+
+.btn {
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    padding: 10px 24px;
+}
+
+.btn-login {
+    background: var(--b-color);
+    border-color: var(--b-color);
+    color: white;
+}
+
+.btn-contact {
+    border-color: var(--b-color);
+}
+
+.btn-login:hover {
+    background: var(--b-color-light);
+    border-color: var(--b-color-light);
+    color: white;
+}
+
+/* home */
+
+#home {
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(./images/home.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+/* about */
+
+.section-title {
+    margin-bottom: 60px;
+}
+
+.section-title .line {
+    width: 60px;
+    height: 4px;
+    background-color: var(--c-brand);
+    margin: 16px auto 24px auto;
+}
+
+.section-title p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* icons */
+
+/* ICONBOX */
+.iconbox {
+    width: 70px;
+    height: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--c-brand-rgb), 0.1);
+    color: var(--c-brand);
+    font-size: 34px;
+    flex: none;
+}
+
+
+/* Contact */
+
+.row {
+    border-radius: 20px;
+}
+
+.form-area {
+    padding-top: 7%;
+}
+
+.row.single-form {
+    box-shadow: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.left {
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(75, 14, 154, 1) 0%, rgba(1, 1, 122, 1) 75%);
+    padding: 220px 98px;
+}
+
+.left h2 {
+    color: #fff;
+    font-weight: 800;
+    font-size: 50px;
+}
+
+.left h2 span {
+    font-weight: 200;
+}
+
+.single-form {
+    background: white;
+}
+
+.right {
+    padding: 70px 100px;
+    position: relative;
+}
+
+.right i {
+    position: absolute;
+    font-size: 80px;
+    left: -27px;
+    top: 40%;
+    color: #fff;
+}
+
+.form-control {
+    color: black;
+    border-bottom-color: rgba(0, 0, 0, .42);
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 4px 4px 0 0;
+}
+
+.right button {
+    border: none;
+    background: var(--b-color);
+    border-color: var(--b-color);
+    color: white;
+    width: 130px;
+    padding: 10px 0;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--b-color-light);
+    border-color: var(--b-color-light);
+    color: white;
+}
