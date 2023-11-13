@@ -8,10 +8,14 @@ export async function createUser(data) {
             type: 'POST',
             url: 'http://localhost:3000/user'
         });
-
         return response; // might want to return something late (?)
     } catch (error) {
-        throw error; // Propagate the error 
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
+
     }
 }
 
@@ -22,13 +26,23 @@ export async function loginUser(email, password) {
             type: 'POST',
             url: 'http://localhost:3000/user/login',
             contentType: 'application/json',
-            data: JSON.stringify({ email, password }),
-            dataType: 'json',
+            data: JSON.stringify({
+                email,
+                password
+            }),
+            dataType: 'json'
         });
-        return response; 
+        if (response && response.user) {
+            return response.user;
+        } else {
+            // Handle unexpected response format
+            throw new Error('Unexpected response from the server');
+        }
     } catch (error) {
-        throw error; 
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
     }
 }
-
-
