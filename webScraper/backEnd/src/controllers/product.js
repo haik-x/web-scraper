@@ -10,12 +10,12 @@ class ProductController{
     create(req, res){
         
         const { name, price, discount, original_price, link, image} = req.body;
-
+        console.log("POS");
         res.send([]);
     }
 
     view(req, res){
-
+        console.log("GET");
         res.send([]);
     }
 
