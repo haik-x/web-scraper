@@ -7,10 +7,14 @@ var myObject = JSON.parse(file);
 const { writeFileSync } = require('fs');
 
 const link = 'https://www.mercadolibre.com.mx/xiaomi-pocophone-poco-m5s-dual-sim-256-gb-gris-8-gb-ram/p/MLM23428712?pdp_filters=deal%3AMLM779363-1#polycard_client=homes-korribanSearchPromotions&searchVariation=MLM23428712&position=1&search_layout=grid&type=product&tracking_id=1c310ba7-c260-465a-a5ac-d79e49688214';
+var previousPrice = 0;
+var productDescount = 0;
 
 const loadProducts = request(link, (error, 
 response, html) => {
     if(!error && response.statusCode == 200) {
+
+
         const $ = cheerio.load(html);
 
         const productName = $('.ui-pdp-title').text();
@@ -22,11 +26,24 @@ response, html) => {
         const productImg = $('img.ui-pdp-image.ui-pdp-gallery__figure__image').attr('src');
         console.log(productImg);
 
+        if (previousPrice === 0){
+          previousPrice = productPrice;
+        }else if (previousPrice >= productPrice){
+          productDescount = 0;
+        }else{
+          productDescount = productPrice - previousPrice
+        }
+        
+        
+        
 
         // Add new Product to Json
-        const infoProducts = {nombreProducto : productName, 
-                                precio : productPrice, 
-                                linkImg : productImg
+        const infoProducts = {precio : productPrice, 
+                              descuento : productDescount,
+                              precioAnterior : previousPrice,
+                              nombreProducto : productName, 
+                              linkProducto : link,
+                              linkImg : productImg
 
                             }
 

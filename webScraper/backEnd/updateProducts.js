@@ -10,7 +10,6 @@ var products = JSON.parse(file);
 
 
 
-
 function iterateProducts(products) {
     products.forEach(product => {
 
@@ -22,6 +21,22 @@ function iterateProducts(products) {
       console.log("Product Price:", product.precio || "N/A");
       console.log("Product Image Link:", product.linkImg || "N/A");
       console.log("------------------------");
+
+      var obj = '<div class="producto">' + 
+      '<img src="' + product.linkImg + '" alt="Producto"> </img>' +
+      '<br>' +
+      '<span class="precioC">' + product.precio + '</span> ' + 
+      '<br>' +
+      '<span class="descuento">' + product.precio + '</span>' +
+      '<br>' +
+      '<span class="nombre">' + product.nombreProducto + '</span>' + 
+      '<br>' +
+      '<a href="verProducto.html" id="ver"> Ver </a>' +
+      '</div>';
+
+      console.log("OBJ: "+obj);
+
+      $("#galeria").append(obj);
     });
   }
   
