@@ -29,12 +29,24 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/index.html'));
 });
 
-const mongoUrl = process.env.MONGO_URL;
+// Define a route to serve index.html
+app.get('/products', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/views/producto.html'));
+});
 
+///////////
+app.listen(port, () => {
+    console.log('app is running...');
+});
+//////////
+
+
+const mongoUrl = process.env.MONGO_URL;
+/* 
 mongoose.connect(mongoUrl).then(() => {
     app.listen(port, () => {
         console.log('app is running...');
     });
 }).catch(err => {
     console.log('Could not connect', err);
-});
+}); */

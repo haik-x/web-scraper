@@ -48,7 +48,7 @@ module.exports = {
         console.log(JSON.stringify(myObject));
 
         try {
-          writeFileSync("./products.json", JSON.stringify(myObject), "utf8");
+          writeFileSync("web-scraper/webScraper/backEnd/products.json", JSON.stringify(myObject), "utf8");
           console.log("Data successfully saved to disk");
         } catch (error) {
           console.log("An error has occurred ", error);

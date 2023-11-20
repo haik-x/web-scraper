@@ -1,15 +1,22 @@
 const { response } = require('express');
 const model = require('../models/product');
+const scraper = require("../../scrape.js");
+const fs = require("fs");
+
 
 class ProductController{
 
     list(req, res){
-        res.send([]);
+        const file = fs.readFileSync("web-scraper/webScraper/backEnd/products.json");
+        var products = JSON.parse(file);
+        console.log("IM ON LIST");
+        res.send(products);
     }
 
     create(req, res){
         
-        const { name, price, discount, original_price, link, image} = req.body;
+        const {link} = req.body;
+        scraper.scrapeProduct(link, 0,0);
         console.log("POS");
         res.send([]);
     }
