@@ -1,14 +1,15 @@
-
+const { v4: uuidv4 } = require('uuid');
 const request = require("request");
 const cheerio = require("cheerio");
 const fs = require("fs");
+
 
 var myObject = []; // JSON.parse(file);
 const { writeFileSync } = require("fs");
 
 
 module.exports = {
-  scrapeProduct: function (link,previousPrice,productDescount ) {
+  scrapeProduct: function (link,previousPrice,productDescount,uuid ) {
     request(link, (error, response, html) => {
 
       if (!error && response.statusCode == 200) {
@@ -24,6 +25,11 @@ module.exports = {
           "img.ui-pdp-image.ui-pdp-gallery__figure__image"
         ).attr("src");
         console.log(productImg);
+        
+        let uuidToUse = uuid;
+        if (!uuid){
+          uuidToUse = uuidv4();
+        }
 
         // Add new Product to Json
         const infoProducts = {
@@ -32,7 +38,8 @@ module.exports = {
           precioAnterior : previousPrice,
           nombreProducto : productName, 
           link : link,
-          linkImg : productImg
+          linkImg : productImg,
+          id :uuidToUse
 
         }
 
