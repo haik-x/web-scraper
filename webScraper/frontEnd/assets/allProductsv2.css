@@ -32,19 +32,15 @@ img {
     font-weight: 700;
 }
 
-a.ver{
-    color: rgba(75,14,154,1);
-    padding: 0px;
-}
-
 .agregar {
     margin-bottom: 30px;
 }
 
 #body{
+
     margin-left: 15%;
     border-radius: 20px;
-    margin-top: 60px;
+    margin-top: 70px;
     width: 64%;
     background-color: white;
     padding: 50px;
@@ -63,9 +59,9 @@ a.ver{
 a {
     color: white;
     cursor: pointer;
-    padding-left: 70px;
+    padding: 70px;
+    display: inline-block;
 }
-
 
 #nuevoProducto {
     font-size: 2rem;
@@ -82,3 +78,4 @@ footer {
     left: 0;
     right: 0;
 }
+

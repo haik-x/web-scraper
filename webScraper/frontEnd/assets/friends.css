@@ -13,31 +13,16 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-img {
-    width: 225px;
-    height: 225px;
-    border-radius: 20px;
-}
-
-.producto {
+.amigo {
     width: 225px;
     height: 265px;
     margin: 5px;
+    margin-top: 30px;
     display: inline-block;   
     text-align: left;
-   
 }
 
-.descuento {
-    font-weight: 700;
-}
-
-a.ver{
-    color: rgba(75,14,154,1);
-    padding: 0px;
-}
-
-.agregar {
+#amigo {
     margin-bottom: 30px;
 }
 
@@ -51,7 +36,7 @@ a.ver{
     text-align: center;
 }
 
-#botonAgregar {
+#botonBuscar {
     width: 10%;
     border: none;
     margin-top: 20px;
@@ -65,9 +50,7 @@ a {
     cursor: pointer;
     padding-left: 70px;
 }
-
-
-#nuevoProducto {
+#nuevoAmigo {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;

@@ -7,32 +7,22 @@ const file = fs.readFileSync('products.json')
 var products = JSON.parse(file); 
 
 const nombre = 'Xiaomi Pocophone Poco M5s Dual Sim 256 Gb Gris 8 Gb Ram';
-
+const quitarProducto = $(".quitarProducto");
 
 var index = 0;
 
 function iterateProducts(products, nombre) {
 
+    //remove fron front
+
+
+    //remove on json
     console.log("Before delete");
     console.log(JSON.stringify(products));
 
-    products.forEach(product => {
-       // console.log("link in JSON: "+product.nombreProducto);
-       // console.log("LINK  :" + nombre);
-       
-        
+    products.forEach(product => {       
         if (product.nombreProducto === nombre){
             products.splice(index, index+1);
-            /* delete product.nombreProducto;
-            delete product.precio;
-            delete product.linkImg;
-
-            console.log("Product ID:", product.id || "N/A");
-            console.log("Product Link:", product.link || "N/A");
-            console.log("Product Name:", product.nombreProducto || "N/A");
-            console.log("Product Price:", product.precio || "N/A");
-            console.log("Product Image Link:", product.linkImg || "N/A");
-            console.log("------------------------");  */
         }
 
         index++;
@@ -43,4 +33,9 @@ function iterateProducts(products, nombre) {
   
 
   iterateProducts(products, nombre);
+
+
+  // event to delete item
+
+
   

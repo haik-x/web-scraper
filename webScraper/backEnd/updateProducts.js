@@ -7,6 +7,8 @@ const fs = require("fs");
 const file = fs.readFileSync('products.json')
 var products = JSON.parse(file); 
 
+const galeria = $("#galeria");
+ 
 
 
 
@@ -23,20 +25,20 @@ function iterateProducts(products) {
       console.log("------------------------");
 
       var obj = '<div class="producto">' + 
-      '<img src="' + product.linkImg + '" alt="Producto"> </img>' +
-      '<br>' +
-      '<span class="precioC">' + product.precio + '</span> ' + 
-      '<br>' +
-      '<span class="descuento">' + product.precio + '</span>' +
-      '<br>' +
-      '<span class="nombre">' + product.nombreProducto + '</span>' + 
-      '<br>' +
-      '<a href="verProducto.html" id="ver"> Ver </a>' +
-      '</div>';
+                '<img src="' + product.linkImg + '" alt="Producto"> </img>' +
+                '<br>' +
+                '<span class="precioC">' + product.precio + '</span> ' + 
+                '<br>' +
+                '<span class="descuento">' + product.precio + '</span>' +
+                '<br>' +
+                '<span class="nombre">' + product.nombreProducto + '</span>' + 
+                '<br>' +
+                '<a href="verProducto.html" id="ver"> Ver </a>' +
+                '</div>';
 
       console.log("OBJ: "+obj);
 
-      $("#galeria").append(obj);
+      galeria.innerHTML = obj;
     });
   }
   
