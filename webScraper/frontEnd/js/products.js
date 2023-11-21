@@ -1,12 +1,27 @@
 import {
-    getProducts
+    getProducts, addProduct, deleteProduct
 } from '../controllers/products.js';
+
+
+$(function() {
+    function makePost() {
+        const inputUrl = document.getElementById("inputURL");
+        console.log(inputUrl.value)
+        addProduct({link: inputUrl.value})
+        location.reload(true);
+    }
+ // Adding event onClick to button
+ $('#botonAgregar').on('click', makePost);                            
+ }); 
+
+
 
 $(document).ready(() =>{
     getProducts().then((value) => {
         console.log(value);
         // Expected output: "Success!"
         const baseDiv = document.getElementById("baseGalery");
+        let isFirst = false;
         $.each(value, function(indice, entry){
             console.log(indice)
             console.log(entry)
@@ -57,7 +72,21 @@ $(document).ready(() =>{
             verProducto.classList.add("ver");
             verProducto.setAttribute("href", "verProducto.html");
             verProducto.innerHTML = "Ver";
-            element.appendChild(verProducto);
+            element.appendChild(verProducto);// button
+
+            const brSimple05 = document.createElement("br");
+            // element.classList.add("producto");
+            element.appendChild(brSimple05);
+
+            const deleteOption = document.createElement("button");
+            // element.classList.add("producto");
+            deleteOption.setAttribute("id", "botonDelete");
+            deleteOption.innerHTML = "Delete";
+            element.appendChild(deleteOption);
+            deleteOption.addEventListener('click', (event) => {
+                deleteProduct(event.currentTarget.parentElement.id);
+                location.reload(true);
+              });
 
         });
       });

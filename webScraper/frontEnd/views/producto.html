@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./../assets/allProducts.css">
     <title>Web Scraping App</title>
-
+    <script type="module" src="./../js/products.js"></script>
+    <script type="module">import {addProduct} from "./../js/products.js";</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -21,29 +22,16 @@
             <span id = "nuevoProducto"> Agrega un Producto</span>
             <br>
             <span id ="nuevoLink"> Pega el link del producto... </span>
-            <input type="url" name="input">
-            <button id="botonAgregar"> Agregar</button>
-            
+            <input type="url" name="input" id="inputURL">
+            <button id="botonAgregar" > Agregar</button>
         </div>
         
         <div class = "galeria" id = "baseGalery">
-                <div class="producto" id = "1">
-                    <img src="https://images.freeimages.com/variants/VZ8KRrC1agcXw91iuorUFbjj/f4a36f6589a0e50e702740b15352bc00e4bfaf6f58bd4db850e167794d05993d?fmt=webp&w=350" alt="Producto"> </img>
-                    <br>
-                    <span class="precioC"> $ #### </span> 
-                    <br>
-                    <span class="descuento"> Descuento:  #% </span> 
-                    <br>
-                    <span class="nombre"> 'Nombre de Producto' </span>  
-                    <br>
-                    <a href="verProducto.html" class="ver"> Ver </a>
-                </div> 
         </div>
     </div>
 
     <footer>
         <p>&copy; 2023 Web Scraping App</p>
     </footer>
-    <script type="module" src="./../js/products.js"></script>
 </body>
 </html>

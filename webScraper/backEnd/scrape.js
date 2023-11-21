@@ -1,17 +1,10 @@
 const { v4: uuidv4 } = require('uuid');
 const request = require("request");
 const cheerio = require("cheerio");
-const fs = require("fs");
 
-
-var myObject = []; // JSON.parse(file);
-const { writeFileSync } = require("fs");
-
-
-module.exports = {
-  scrapeProduct: function (link,previousPrice,productDescount,uuid ) {
+function doRequest(link, previousPrice, productDescount, uuid) {
+  return new Promise(function (resolve, reject) {
     request(link, (error, response, html) => {
-
       if (!error && response.statusCode == 200) {
         const $ = cheerio.load(html);
 
@@ -42,18 +35,10 @@ module.exports = {
           id :uuidToUse
 
         }
-
-        console.log("JSON NEW");
-        myObject.push(infoProducts);
-        console.log(JSON.stringify(myObject));
-
-        try {
-          writeFileSync("web-scraper/webScraper/backEnd/products.json", JSON.stringify(myObject), "utf8");
-          console.log("Data successfully saved to disk");
-        } catch (error) {
-          console.log("An error has occurred ", error);
-        }
+        return resolve(infoProducts);
       }
     });
-  },
-};
+  });
+}
+
+module.exports = {doRequest};
