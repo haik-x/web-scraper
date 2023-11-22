@@ -17,7 +17,7 @@ $(document).ready(function () {
             $('#email1').val('');
             $('#password1').val('');
             if (responseData) {
-                location.assign('./../views/index.html');
+                location.assign('./../views/producto.html');
             }
         } catch (error) {
             if (error.email) {
