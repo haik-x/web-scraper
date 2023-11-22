@@ -84,6 +84,25 @@ class UserController {
     }
 
 
+    fetchUserInfo = async (req, res) => {
+        try {
+            const user = res.locals.user;
+
+            if (user) {
+                res.json(user);
+            } else {
+                res.status(401).json({
+                    message: 'Unauthorized'
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching user information:', error);
+            res.status(500).json({
+                message: 'Internal Server Error'
+            });
+        }
+    };
+
     view(req, res) {
         res.send([]);
     }

@@ -10,6 +10,8 @@ const jwt = require('jsonwebtoken');
 
 dotenv.config();
 
+const {authMiddleware, checkUser} = require('./src/middlewares/auth');
+
 const routes = require('./routes');
 
 const app = express();
@@ -20,6 +22,8 @@ app.use(cookieParser());
 
 const port = process.env.PORT || 3000; 
 
+app.get('*', checkUser);
+
 app.use(routes);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -29,24 +33,26 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/index.html'));
 });
 
-// Define a route to serve index.html
-app.get('/products', (req, res) => {
+// Define a route to serve products.html
+app.get('/products', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/producto.html'));
 });
 
 ///////////
+/*
 app.listen(port, () => {
     console.log('app is running...');
 });
+*/
 //////////
 
 
 const mongoUrl = process.env.MONGO_URL;
-/* 
+
 mongoose.connect(mongoUrl).then(() => {
     app.listen(port, () => {
         console.log('app is running...');
     });
 }).catch(err => {
     console.log('Could not connect', err);
-}); */
+});
