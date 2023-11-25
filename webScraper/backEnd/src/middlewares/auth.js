@@ -30,17 +30,19 @@ const checkUser = (req,res,next) => {
         jwt.verify(token, secret, async (err,decoded) => {
             if(err){
                 res.locals.user = null;
+                req.user = null;
                 next();
             }else {
                 let user = await User.findById(decoded.id);
                 res.locals.user = user;
-                console.log(JSON.stringify(user));
+                req.user = user;
                 next();
             }
         })
     }
     else {
         res.locals.user = null;
+        req.user = null;
         next();
     }
     

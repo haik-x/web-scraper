@@ -46,3 +46,24 @@ export async function loginUser(email, password) {
         }
     }
 }
+
+
+
+
+export async function updateUser(formData) {
+    // Make an HTTP request to the server to handle the file upload and user update
+
+    for (const entry of formData.entries()) {
+        console.log(entry);
+    }
+    const response = await fetch('http://localhost:3000/user/update', {
+        method: 'PUT', // Use PUT for updates
+        body: formData,
+    });
+
+    if (response.ok) {
+        return await response.json();
+    } else {
+        throw new Error('Failed to update user information and image');
+    }
+}
