@@ -1,3 +1,5 @@
+const path = require('path');
+
 const {
     response
 } = require('express');
@@ -13,6 +15,7 @@ class UserController {
             id
         }, secret);
     }
+
 
     handleErrors(err) {
         console.log('Handling errors...');
@@ -111,18 +114,40 @@ class UserController {
         res.send([]);
     }
 
-    edit(req, res) {
+    updateProfile = async (req, res) => {
+        try {
 
-        const {
-            name,
-            last_name,
-            email,
-            password,
-            joined_date
-        } = req.body;
+            console.log("This is my:", req.body);
+            const { name, username, email, biography, birth, country, phone, webpage, twitter, tiktok, instagram} = req.body;
 
-        res.send([]);
+            // Construct the update object based on what fields are present
+            const updateObject = {};
+            if (name) updateObject.name = name;
+            if (username) updateObject.username = username;
+            if (email) updateObject.email = email;
+            if (biography) updateObject.biography = biography;
+            if (birth) updateObject.birth = birth;
+            if (country) updateObject.country = country;
+            if (phone) updateObject.phone = phone;
+            if (webpage) updateObject.webpage = webpage;
+            if (twitter) updateObject.twitter = twitter;
+            if (tiktok) updateObject.tiktok = tiktok;
+            if (instagram) updateObject.instagram = instagram;
+            if (req.file) {
+                // Save the image to your server or cloud storage
+                const imagePath = '/uploads/' + req.file.filename; // Adjust this based on your storage setup
+                updateObject.profileImage = imagePath;
+            }
+            console.log("Update back", updateObject);
+            // Update user information
+            const userId = res.locals.user; // Assuming you set req.user in your auth middleware
+            const updatedUser = await model.findByIdAndUpdate(userId, updateObject, { new: true });
 
+            res.status(200).json({ user: updatedUser });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
     }
 }
 

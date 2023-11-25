@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+
 const path = require('path');
 
 const mongoose = require('mongoose');
@@ -10,19 +12,27 @@ const jwt = require('jsonwebtoken');
 
 dotenv.config();
 
-const {authMiddleware, checkUser} = require('./src/middlewares/auth');
+const {
+    authMiddleware,
+    checkUser
+} = require('./src/middlewares/auth');
 
 const routes = require('./routes');
 
 const app = express();
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3000;
 
-app.get('*', checkUser);
+//app.get('*', checkUser);
 
 app.use(routes);
 

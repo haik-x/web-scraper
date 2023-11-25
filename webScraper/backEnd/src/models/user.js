@@ -54,7 +54,23 @@ const schema = new Schema({
         type: String,
         require: false
     },
-    web_page: {
+    webpage: {
+        type: String,
+        require: false
+    },
+    twitter: {
+        type: String,
+        require: false,
+    },
+    tiktok: {
+        type: String,
+        require: false
+    },
+    instagram: {
+        type: String,
+        require: false
+    },
+    profileImage: {
         type: String,
         require: false
     }
