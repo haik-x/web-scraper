@@ -48,13 +48,11 @@ app.get('/products', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/producto.html'));
 });
 
-///////////
-/*
-app.listen(port, () => {
+
+/* app.listen(port, () => {
     console.log('app is running...');
 });
-*/
-//////////
+ */
 
 
 const mongoUrl = process.env.MONGO_URL;
