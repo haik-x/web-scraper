@@ -8,6 +8,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./../assets/index.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>Scrapy.</title>
 </head>
 
@@ -125,20 +126,20 @@
                 <div class="col-sm-12 col-lg-6">
                     <div class="right">
                         <i class="fa fa-caret-left"></i>
-                        <form>
-                            <div class="mb-3">
+                        <form id="contact-form">
+                            <div class="mb-3 field">
                                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                <input type="text" class="form-control" id="username"
                                     aria-describedby="emailHelp">
                                 <div id="emailHelp" class="form-text"></div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 field">
                                 <label for="exampleInputPassword1" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1">
+                                <input type="email" class="form-control" id="email">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 field">
                                 <label for="exampleInputPassword1" class="form-label">Mensaje</label>
-                                <textarea class="form-control" id="exampleInputPassword1"></textarea>
+                                <textarea class="form-control" id="message"></textarea>
                             </div>
                             <div class="text-end">
                                 <button type="submit" class="btn btn-primary">Enviar</button>
@@ -149,6 +150,9 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script type="module" src="./../js/contact.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
