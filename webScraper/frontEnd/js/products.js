@@ -1,5 +1,5 @@
 import {
-    getProducts, addProduct, deleteProduct
+    getProducts, addProduct, deleteProduct, updateProduct
 } from '../controllers/products.js';
 
 
@@ -78,15 +78,24 @@ $(document).ready(() =>{
             // element.classList.add("producto");
             element.appendChild(brSimple05);
 
-            const deleteOption = document.createElement("button");
-            // element.classList.add("producto");
-            deleteOption.setAttribute("id", "botonDelete");
-            deleteOption.innerHTML = "Delete";
-            element.appendChild(deleteOption);
-            deleteOption.addEventListener('click', (event) => {
-                deleteProduct(event.currentTarget.parentElement.id);
+            const updateOption = document.createElement("button");
+            updateOption.setAttribute("id", "botonUpdate");
+            updateOption.innerHTML = "Update";
+            element.appendChild(updateOption);
+            updateOption.addEventListener('click', (event) => {
+                updateProduct(event.currentTarget.parentElement.id);
                 location.reload(true);
               });
+
+              const deleteOption = document.createElement("button");
+              // element.classList.add("producto");
+              deleteOption.setAttribute("id", "botonDelete");
+              deleteOption.innerHTML = "Delete";
+              element.appendChild(deleteOption);
+              deleteOption.addEventListener('click', (event) => {
+                  deleteProduct(event.currentTarget.parentElement.id);
+                  location.reload(true);
+                });
 
         });
       });

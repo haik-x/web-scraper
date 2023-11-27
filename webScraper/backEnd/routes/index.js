@@ -15,10 +15,10 @@ router.post('/user', userController.create);
 router.put('/user/update', checkUser, uploadMiddleware.single('profileImage'), userController.updateProfile);
 router.delete('/user/:id', userController.delete);
 
-router.get('/product/:user', productController.list);
-router.get('/product/:id', productController.view);
-router.post('/product/', productController.create);
-router.put('/product/:id', productController.edit);
-router.delete('/product/:id', productController.delete);
+router.get('/product/:user', checkUser, productController.list);
+router.get('/product/:id', checkUser, productController.view);
+router.post('/product/', checkUser, productController.create);
+router.put('/product/:id', checkUser, productController.edit);
+router.delete('/product/:id', checkUser, productController.delete);
 
 module.exports = router;

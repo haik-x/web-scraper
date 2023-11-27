@@ -53,3 +53,21 @@ export async function deleteProduct(id) {
 
     }
 }
+
+export async function updateProduct(id) {
+    try {
+        const response = await $.ajax({
+            contentType: 'application/json',
+            type: 'PUT',
+            url: 'http://localhost:3000/product/' + id
+        });
+        return response; // might want to return something late (?)
+    } catch (error) {
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
+
+    }
+}
