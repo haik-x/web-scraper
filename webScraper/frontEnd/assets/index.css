@@ -195,6 +195,10 @@ img {
     border-radius: 4px 4px 0 0;
 }
 
+.form-control.error {
+	border: 1px solid red;
+}
+
 .right button {
     border: none;
     background: var(--b-color);
