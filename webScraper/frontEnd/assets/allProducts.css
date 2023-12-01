@@ -13,33 +13,88 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-img {
-    width: 225px;
-    height: 225px;
-    border-radius: 20px;
+button {
+    padding: 1px;
+    margin-right: 20px;
+    border: 0;
+    border-radius: 50px;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(1, 1, 122,1) 100%);
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    height: 20px;
+    width: 80px;
+  }
+
+#mainMenu {
+    margin-top: 80px;
+    margin-left: 18%;
+}
+  
+button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+  }
+  
+button:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+  }
+
+#botonAgregar {
+    height: 30px;
+    width: 90px;
 }
 
+
+img {
+    width: 70%;
+    height: 70%;
+    border-radius: 20px;
+    margin:auto;
+	display:block;
+}
+
+
+.infoDiv{
+    height: 140px;
+}
 .producto {
-    width: 225px;
-    height: 265px;
+    width: 294.66px;
+    height: auto;
     margin: 5px;
     display: inline-block;   
     text-align: left;
    
 }
 
+div {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .descuento {
     font-weight: 700;
 }
 
-a.ver{
-    color: rgba(75,14,154,1);
-    padding: 0px;
-}
 
 .agregar {
     margin-bottom: 30px;
 }
+
+.tituloAgregar {
+    margin-bottom: 20px;
+}
+
+.actionAgregar{
+    margin-bottom: 100px;
+}
+
 
 #body{
     margin-left: 15%;
@@ -51,19 +106,18 @@ a.ver{
     text-align: center;
 }
 
-#botonAgregar {
-    width: 10%;
-    border: none;
-    margin-top: 20px;
-    border-radius: 50px;
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(1, 1, 122,1) 100%);
-    color: white;
-}
-
 a {
     color: white;
     cursor: pointer;
-    padding-left: 70px;
+    padding-right: 7%;
+    font-weight: bolder;
+}
+
+#inputURL {
+    width: 30%;
+    height: 22px;
+    margin-right: 15px;
+    text-align: center;
 }
 
 

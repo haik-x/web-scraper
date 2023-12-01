@@ -10,20 +10,23 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1>Web Scraping App</h1>
-    </header>
+    </div>
     <div id="mainMenu">
-        <a href="producto.html" id="linkToProducts"> Productos </a>
-        <a href="friends.html" id="findFriends">Buscar Amigos</a>
+        <a href="producto.html" id="linkToProducts" style="text-decoration: none;"> Productos </a>
+        <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a>
     </div>
     <div id ="body">
-        <div class = "agregar">       
-            <span id = "nuevoProducto"> Agrega un Producto</span>
-            <br>
-            <span id ="nuevoLink"> Pega el link del producto... </span>
-            <input type="url" name="input" id="inputURL">
-            <button id="botonAgregar" > Agregar</button>
+        <div class = "agregar">      
+            <div class="tituloAgregar"> 
+                <span id = "nuevoProducto"> Agrega un Producto</span>
+            </div>
+            <div class = "actionAgregar">
+                <br>
+                <input type="url" name="input" id="inputURL" placeholder="Pega el link del producto">
+                <button id="botonAgregar" > Agregar</button>
+            </div>
         </div>
         
         <div class = "galeria" id = "baseGalery">

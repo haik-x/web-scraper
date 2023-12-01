@@ -27,6 +27,24 @@ body{
 
 .divImg {
     display: inline-block;
+    width: 30%;
+    height: 30%;
+}
+
+div {
+    display:inline;
+    width: autopx;
+    height: autopx;
+}
+
+
+.imgDiv{
+    height: 200px;
+    width: 200px;
+}
+
+.infoDiv{
+
 }
 
 .infoProducto {
