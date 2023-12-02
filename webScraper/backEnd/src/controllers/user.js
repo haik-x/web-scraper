@@ -6,6 +6,7 @@ const {
 
 const jwt = require('jsonwebtoken');
 const model = require('../models/user');
+const user = require('../models/user');
 const secret = process.env.SECRET_KEY;
 
 class UserController {
@@ -106,6 +107,36 @@ class UserController {
         }
     };
 
+
+    getUsers = async (req, res) => {
+        // Get current 
+        const userId = res.locals.user; // Assuming you set req.user in your auth middleware
+        const userObject = await model.find({'email': userId.email});
+        const userDoc = userObject[0]._doc;
+        const newUser = {
+            ...userDoc
+        }
+
+        const allPeople = [];
+        const users = await model.find();
+
+        for (const user of users ) {
+            if (newUser.friends.includes(user.email)) {
+                continue;
+            }
+            if (user.email === userId.email) {
+                continue;
+            }
+            const person = {
+                id : user.id,
+                name: user.name,
+                email: user.email,
+              }
+              allPeople.push(person);
+        }
+        res.send(allPeople);
+    };
+
     view(req, res) {
         res.send([]);
     }
@@ -149,6 +180,28 @@ class UserController {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     }
+    
+    addFriend = async (req, res) => {
+        try {
+            const { friendEmail } = req.body;
+            console.log("This is my test:", friendEmail);
+            // Update user information
+            const userId = res.locals.user; // Assuming you set req.user in your auth middleware
+            const userObject = await model.find({'email': userId.email});
+            const userDoc = userObject[0]._doc;
+            const newUser = {
+                ...userDoc
+            }
+            newUser.friends.push(friendEmail);
+            const updatedUser = await model.findByIdAndUpdate(userObject[0]._id, newUser, { new: true });
+            res.status(200).json({ user: updatedUser });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
 }
+
+
 
 module.exports = new UserController();

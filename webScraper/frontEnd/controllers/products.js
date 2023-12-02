@@ -1,9 +1,13 @@
-export async function getProducts() {
+export async function getProducts(includeFriends) {
     try {
+        let includeParam = '';
+        if (includeFriends) {
+            includeParam = '?includeFriend=true';
+        }
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'GET',
-            url: 'http://localhost:3000/product/user'
+            url: 'http://localhost:3000/product/user' + includeParam
         });
         return response; // might want to return something late (?)
     } catch (error) {

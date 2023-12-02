@@ -73,6 +73,10 @@ const schema = new Schema({
     profileImage: {
         type: String,
         require: false
+    },
+    friends: {
+        type: [String],
+        require: false
     }
 }, {
     versionKey: false

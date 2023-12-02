@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../assets/friends.css">
     <title>Amigos</title>
+    <script type="module" src="./../js/showFriends.js"></script>
+    <script type="module">import {getFriends} from "./../js/showFriends.js";</script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1> Busca Amigos con Gustos en Común </h1>
-    </header>
+    </div>
     <div id="mainMenu">
-        <a href="producto.html" id="linkToProducts"> Productos </a>
-        <a href="friends.html" id="findFriends">Buscar Amigos</a>
+        <a href="producto.html" id="linkToProducts" style="text-decoration: none;"> Productos </a>
+        <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a>
     </div>
     <div id ="body">
-        <div class = "agregar">       
-            <span id = "nuevoAmigo"> Agrega a un Amigo</span> 
-            <br>
-            <span id ="buscarUsuario"> Pega el usuario a buscar... </span>
-            <input type="text" name="input">
-            <button id="botonBuscar"> Buscar </button>
+
+        <div class = "agregar">      
+            <div class="tituloAgregar"> 
+                <span id = "nuevoAmigo"> Agrega un Nuevo Amigo</span>
+            </div>
+            <div class = "actionAgregar">
+                <br>
+                <input type="url" name="input" id="inputURL" placeholder="Pega el link del producto">
+                <button id="botonBuscar" > Buscar </button>
+            </div>
         </div>
-
-        <div class="amigo">
-
+        <div id="people">
         </div>
     </div>
 

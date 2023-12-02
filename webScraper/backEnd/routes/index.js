@@ -11,8 +11,10 @@ const uploadMiddleware = require('./../src/middlewares/image.js');
 
 router.post('/user/login', userController.login);
 router.get('/user/settings', checkUser, userController.fetchUserInfo);
+router.get('/users', checkUser, userController.getUsers);
 router.post('/user', userController.create);
 router.put('/user/update', checkUser, uploadMiddleware.single('profileImage'), userController.updateProfile);
+router.post('/user/addfriend', checkUser, userController.addFriend);
 router.delete('/user/:id', userController.delete);
 
 router.get('/product/:user', checkUser, productController.list);

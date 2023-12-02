@@ -67,3 +67,42 @@ export async function updateUser(formData) {
         throw new Error('Failed to update user information and image');
     }
 }
+
+export async function getFriends() {
+    try {
+        const response = await $.ajax({
+            contentType: 'application/json',
+            type: 'GET',
+            url: 'http://localhost:3000/users'
+        });
+        return response; // might want to return something late (?)
+    } catch (error) {
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
+    }
+}
+
+export async function addFriend(email) {
+    try {
+        const response = await $.ajax({
+            contentType: 'application/json',
+            type: 'POST',
+            url: 'http://localhost:3000/user/addfriend',
+            data: JSON.stringify({
+                'friendEmail': email
+            }),
+            dataType: 'json'
+        });
+        return response; // might want to return something late (?)
+    } catch (error) {
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
+    }
+}
+

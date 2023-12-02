@@ -1,5 +1,6 @@
 const { response } = require('express');
 const model = require('../models/product');
+const modelUser = require('../models/user');
 const scraper = require("../../scrape.js");
 const ObjectId = require('mongodb').ObjectId;
 
@@ -20,6 +21,31 @@ class ProductController{
       
               }
               allProducts.push(product);
+        }
+        // Agrega amigos si especificado
+        if ( req.query.includeFriend ) {
+            const userId = res.locals.user; // Assuming you set req.user in your auth middleware
+            const userObject = await modelUser.find({'email': userId.email});
+            const userDoc = userObject[0]._doc;
+            const newUser = {
+                ...userDoc
+            }
+            for (const friend of newUser.friends) {
+                const respModels = await model.find({email: friend});
+                for (const resModel of respModels ) {
+                    const product = {
+                        precio : resModel.price, 
+                        descuento : resModel.discount,
+                        precioAnterior : resModel.original_price,
+                        nombreProducto : resModel.name, 
+                        link : resModel.link,
+                        linkImg : resModel.image,
+                        id : resModel.id,
+                        email : friend,
+                    }
+                    allProducts.push(product);
+                }
+            }
         }
         res.send(allProducts);
     }

@@ -8,6 +8,11 @@
     <script type="module" src="./../js/products.js"></script>
     <script type="module">import {addProduct} from "./../js/products.js";</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+        window.location.href = "./../views/friends.html";
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -15,7 +20,8 @@
     </div>
     <div id="mainMenu">
         <a href="producto.html" id="linkToProducts" style="text-decoration: none;"> Productos </a>
-        <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a>
+        <!-- <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a> -->
+        <button onclick="myFunction()">Buscar Amigos</button>
     </div>
     <div id ="body">
         <div class = "agregar">      
@@ -26,6 +32,10 @@
                 <br>
                 <input type="url" name="input" id="inputURL" placeholder="Pega el link del producto">
                 <button id="botonAgregar" > Agregar</button>
+            </div>
+            <div id = "actionIncluyeAmigos">
+                <label> Incluye amigos</label>
+                <input type="checkbox" name="input" id="inputRequestAmigos" >
             </div>
         </div>
         
