@@ -55,13 +55,17 @@ class ProductController{
         const {link} = req.body;
         const newProduct = await scraper.doRequest(link, 0,0);
 
-        model.create({name: newProduct.nombreProducto,
-            price: Number(newProduct.precio),
-            discount: newProduct.descuento,
-            original_price: newProduct.precioAnterior,
-            link: newProduct.link,
-            image: newProduct.linkImg,
-            email: req.user.email,});
+        try {
+            await model.create({name: newProduct.nombreProducto,
+                price: Number(newProduct.precio),
+                discount: newProduct.descuento,
+                original_price: newProduct.precioAnterior,
+                link: newProduct.link,
+                image: newProduct.linkImg,
+                email: req.user.email,});
+        } catch (error) {
+            console.log('Puede ser un duplicado?')
+        }
 
         res.send([]);
     }
@@ -84,7 +88,7 @@ class ProductController{
 
         const respModels = await model.find({"_id": new ObjectId(idToUpdate)});
         const firstModel = respModels[0];
-        const productToUpdate = await scraper.doRequest(firstModel.link, firstModel.original_price + 100 , firstModel.discount);
+        const productToUpdate = await scraper.doRequest(firstModel.link, firstModel.price, firstModel.original_price, firstModel.discount);
 
         const respUpdate = await model.updateOne({"_id": new ObjectId(idToUpdate)}, 
         {name: productToUpdate.nombreProducto,

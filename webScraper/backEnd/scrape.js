@@ -2,7 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const request = require("request");
 const cheerio = require("cheerio");
 
-function doRequest(link, previousPrice, productDiscount) {
+function doRequest(link, price, previousPrice, productDiscount) {
   return new Promise(function (resolve, reject) {
     request(link, (error, response, html) => {
       if (!error && response.statusCode == 200) {
@@ -13,6 +13,15 @@ function doRequest(link, previousPrice, productDiscount) {
 
         const productPrice = $('[itemprop="price"]').attr("content");
         console.log(productPrice);
+
+        if ( productPrice !== price ) {
+          previousPrice = price;
+          if ( productPrice < previousPrice ) {
+            productDiscount = previousPrice * 100 / productPrice; 
+          } else {
+            productDiscount = 0;
+          }
+        }
 
         const productImg = $(
           "img.ui-pdp-image.ui-pdp-gallery__figure__image"

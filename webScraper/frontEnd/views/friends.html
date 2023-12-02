@@ -8,14 +8,24 @@
     <script type="module" src="./../js/showFriends.js"></script>
     <script type="module">import {getFriends} from "./../js/showFriends.js";</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+        window.location.href = "./../views/friends.html";
+        }
+    </script>
+        <script>
+            function myFunctionP() {
+            window.location.href = "./../views/producto.html";
+            }
+        </script>
 </head>
 <body>
     <div class="header">
-        <h1> Busca Amigos con Gustos en Común </h1>
+        <h1> Busca a Nuevos Amigos </h1>
     </div>
     <div id="mainMenu">
-        <a href="producto.html" id="linkToProducts" style="text-decoration: none;"> Productos </a>
-        <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a>
+        <button onclick="myFunctionP()">Productos</button>
+        <button onclick="myFunction()">Buscar Amigos</button>
     </div>
     <div id ="body">
 

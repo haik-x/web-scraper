@@ -13,14 +13,18 @@
         window.location.href = "./../views/friends.html";
         }
     </script>
+        <script>
+            function myFunctionP() {
+            window.location.href = "./../views/producto.html";
+            }
+        </script>
 </head>
 <body>
     <div class="header">
         <h1>Web Scraping App</h1>
     </div>
     <div id="mainMenu">
-        <a href="producto.html" id="linkToProducts" style="text-decoration: none;"> Productos </a>
-        <!-- <a href="friends.html" id="findFriends" style="text-decoration: none;">Buscar Amigos</a> -->
+        <button onclick="myFunctionP()">Productos</button>
         <button onclick="myFunction()">Buscar Amigos</button>
     </div>
     <div id ="body">

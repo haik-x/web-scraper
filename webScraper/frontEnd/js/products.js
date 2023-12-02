@@ -7,12 +7,14 @@ $(function() {
     function makePost() {
         const inputUrl = document.getElementById("inputURL");
         console.log(inputUrl.value)
-        addProduct({link: inputUrl.value})
-        location.reload(true);
+        addProduct({link: inputUrl.value}).then(
+            function (){
+                location.reload(true);
+            });        
     }
  // Adding event onClick to button
  $('#botonAgregar').on('click', makePost);                            
- }); 
+ });
 
  $(function() {
     function makePost() {
@@ -26,6 +28,7 @@ $(function() {
 
  
     function getAllProducts(includeFriends) {
+        $("#baseGalery").empty();
         getProducts(includeFriends).then((value) => {
             console.log(value);
             // Expected output: "Success!"
@@ -94,7 +97,7 @@ $(function() {
                     updateOption.innerHTML = "Update";
                     actionsDiv.appendChild(updateOption);
                     updateOption.addEventListener('click', (event) => {
-                        updateProduct(event.currentTarget.parentElement.id);
+                        updateProduct(event.currentTarget.parentElement.parentElement.id);
                         location.reload(true);
                     });
     
@@ -103,7 +106,7 @@ $(function() {
                     deleteOption.innerHTML = "Delete";
                     actionsDiv.appendChild(deleteOption);
                     deleteOption.addEventListener('click', (event) => {
-                        deleteProduct(event.currentTarget.parentElement.id);
+                        deleteProduct(event.currentTarget.parentElement.parentElement.id);
                         location.reload(true);
                         });
                 }else{
