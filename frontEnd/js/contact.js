@@ -30,7 +30,7 @@ $(document).ready(function () {
                 }
             );
 
-            form[0].reset(); // Use form[0] to access the native DOM element
+            form[0].reset();
             return false;
         }
     });
@@ -44,7 +44,6 @@ function checkInputs() {
             validateInput($(this));
         });
 
-        // Initial validation
         validateInput($(this));
     });
 

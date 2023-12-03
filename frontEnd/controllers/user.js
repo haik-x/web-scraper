@@ -8,7 +8,7 @@ export async function createUser(data) {
             type: 'POST',
             url: 'http://localhost:3000/user'
         });
-        return response; // might want to return something late (?)
+        return response;
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
             throw error.responseJSON.errors;
@@ -35,7 +35,6 @@ export async function loginUser(email, password) {
         if (response && response.user) {
             return response.user;
         } else {
-            // Handle unexpected response format
             throw new Error('Unexpected response from the server');
         }
     } catch (error) {
@@ -69,13 +68,12 @@ export async function logoutUser() {
 
 
 export async function updateUser(formData) {
-    // Make an HTTP request to the server to handle the file upload and user update
 
     for (const entry of formData.entries()) {
         console.log(entry);
     }
     const response = await fetch('http://localhost:3000/user/update', {
-        method: 'PUT', // Use PUT for updates
+        method: 'PUT',
         body: formData,
     });
 
@@ -93,7 +91,7 @@ export async function getFriends() {
             type: 'GET',
             url: 'http://localhost:3000/users'
         });
-        return response; // might want to return something late (?)
+        return response;
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
             throw error.responseJSON.errors;
@@ -114,7 +112,7 @@ export async function addFriend(email) {
             }),
             dataType: 'json'
         });
-        return response; // might want to return something late (?)
+        return response;
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
             throw error.responseJSON.errors;
@@ -123,4 +121,3 @@ export async function addFriend(email) {
         }
     }
 }
-

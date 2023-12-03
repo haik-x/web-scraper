@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 
         if (password !== confirmed_password) {
-            displayErrorMessage('Passwords do not match', 'Password2');
+            displayErrorMessage('Las contraseñas no son iguales', 'Password2');
             return;
         }
 
@@ -52,7 +52,6 @@ $(document).ready(function () {
     }
 
     function clearErrorMessages() {
-        // Remove any existing error messages
         $('.error-message').each(function () {
             $(this).remove();
         });

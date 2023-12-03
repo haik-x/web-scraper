@@ -130,7 +130,7 @@ function getAllProducts(includeFriends) {
 
 
 $(document).ready(() => {
-    $('#logout').click(async function () {
+    $('#logout').on('click', async function () {
         try {
             const responseData = await logoutUser();
             console.log('Logout successful:', responseData);
@@ -138,6 +138,9 @@ $(document).ready(() => {
         } catch (error) {
             console.log("Unexpected error structure received from the server:", error);
         }
+    });
+    $('#settings').on('click', async function () {
+        window.location.href = '/views/settings.html';
     });
     getAllProducts(false);
 })

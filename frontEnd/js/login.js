@@ -8,6 +8,8 @@ $(document).ready(function () {
     form.on('submit', async function (e) {
         e.preventDefault();
 
+        clearErrorMessages();
+
         const email = $('#email1').val();
         const password = $('#password1').val();
 
@@ -38,7 +40,6 @@ $(document).ready(function () {
     }
 
     function clearErrorMessages() {
-        // Remove any existing error messages
         $('.error-message').each(function () {
             $(this).remove();
         });

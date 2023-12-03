@@ -29,7 +29,7 @@ export async function addProduct(data) {
             type: 'POST',
             url: 'http://localhost:3000/product'
         });
-        return response; // might want to return something late (?)
+        return response;
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
             throw error.responseJSON.errors;
@@ -65,7 +65,7 @@ export async function updateProduct(id) {
             type: 'PUT',
             url: 'http://localhost:3000/product/' + id
         });
-        return response; // might want to return something late (?)
+        return response;
     } catch (error) {
         if (error.responseJSON && error.responseJSON.errors) {
             throw error.responseJSON.errors;

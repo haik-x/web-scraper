@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./../assets/allProducts.css">
-    <title>Web Scraping App</title>
-    <script type="module">import {addProduct} from "./../js/products.js";</script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>scrapy.</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         function myFunction() {
-        window.location.href = "./../views/friends.html";
+            window.location.href = "./../views/friends.html";
         }
     </script>
-        <script>
-            function myFunctionP() {
+    <script>
+        function myFunctionP() {
             window.location.href = "./../views/producto.html";
-            }
-        </script>
+        }
+    </script>
 </head>
+
 <body>
+<<<<<<< HEAD:webScraper/frontEnd/views/producto.html
     <h1>
         <img src="./../assets/images/SCR-20231112-oqwn.png" alt="" id="scrapyImg">
         <div class="mainMenu">
@@ -33,19 +36,35 @@
         <div class = "agregar">      
             <div class="tituloAgregar"> 
                 <span id = "nuevoProducto"> Agrega un Producto</span>
+=======
+    <div class="header">
+        <h1>scrapy.</h1>
+    </div>
+    <div id="mainMenu">
+        <button onclick="myFunctionP()" class="navBar">Productos</button>
+        <button onclick="myFunction()" class="navBar">Buscar Amigos</button>
+        <button id="settings">Ajustes</button>
+        <button id="logout">Log out</button>
+
+    </div>
+    <div id="body">
+        <div class="agregar">
+            <div class="tituloAgregar">
+                <span id="nuevoProducto"> Agrega un Producto</span>
+>>>>>>> 7b7bb24ae91609ea9d96c48e9e8d179a24eed5ed:frontEnd/views/producto.html
             </div>
-            <div class = "actionAgregar">
+            <div class="actionAgregar">
                 <br>
                 <input type="url" name="input" id="inputURL" placeholder="Pega el link del producto">
-                <button id="botonAgregar" > Agregar</button>
+                <button id="botonAgregar"> Agregar</button>
             </div>
-            <div id = "actionIncluyeAmigos">
+            <div id="actionIncluyeAmigos">
                 <label> Incluye amigos</label>
-                <input type="checkbox" name="input" id="inputRequestAmigos" >
+                <input type="checkbox" name="input" id="inputRequestAmigos">
             </div>
         </div>
-        
-        <div class = "galeria" id = "baseGalery">
+
+        <div class="galeria" id="baseGalery">
         </div>
     </div>
     <footer>
@@ -53,5 +72,8 @@
     </footer>
 </body>
 
+<<<<<<< HEAD:webScraper/frontEnd/views/producto.html
     <script type="module" src="./../js/products.js"></script>
+=======
+>>>>>>> 7b7bb24ae91609ea9d96c48e9e8d179a24eed5ed:frontEnd/views/producto.html
 </html>
