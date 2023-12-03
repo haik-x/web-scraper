@@ -6,7 +6,6 @@ const secret = process.env.SECRET_KEY;
 
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.jwt;
-
     if(token){
         jwt.verify(token, secret, (err,decoded) => {
             if(err){
