@@ -1,4 +1,5 @@
 const { response } = require('express');
+const axios = require('axios');
 const model = require('../models/product');
 const modelUser = require('../models/user');
 const scraper = require("../../scrape.js");
@@ -51,23 +52,28 @@ class ProductController{
     }
 
     async create(req, res){
+        
+        const { link } = req.body;
+        const { user } = req.user;
 
-        const {link} = req.body;
-        const newProduct = await scraper.doRequest(link, 0,0);
+        const secondApiUrl = 'http://localhost:4000/api/product';
 
         try {
-            await model.create({name: newProduct.nombreProducto,
-                price: Number(newProduct.precio),
-                discount: newProduct.descuento,
-                original_price: newProduct.precioAnterior,
-                link: newProduct.link,
-                image: newProduct.linkImg,
-                email: req.user.email,});
-        } catch (error) {
-            console.log('Puede ser un duplicado?')
-        }
+            const response = await axios.post(secondApiUrl, {
+                link,
+                user: {
+                    ...user,
+                    email: req.user?.email || 'default@example.com',
+                }
+            });
 
-        res.send([]);
+            console.log('Second API Response:', response.data);
+
+            res.status(201).send({ message: 'Product created successfully' });
+        } catch (error) {
+            console.error('Error creating product:', error);
+            res.status(500).send({ error: 'Internal Server Error' });
+        }
     }
 
     view(req, res){
@@ -83,6 +89,7 @@ class ProductController{
     }
 
     async edit(req, res){
+        
         const requestUrl = req.url;
         const idToUpdate = requestUrl.replace("/product/", "")
 
@@ -95,6 +102,7 @@ class ProductController{
             price: Number(productToUpdate.precio) ,
             discount: productToUpdate.descuento,
             original_price: productToUpdate.precioAnterior,
+            link: productToUpdate.link,
             image: productToUpdate.linkImg,
         });
 

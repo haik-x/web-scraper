@@ -32,27 +32,23 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000;
 
-//app.get('*', checkUser);
 
-app.use(routes);
-
-app.use(express.static(path.join(__dirname, '../frontend')));
-
-// Define a route to serve index.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/views/index.html'));
-});
-
-// Define a route to serve products.html
 app.get('/products', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/producto.html'));
 });
 
-
-/* app.listen(port, () => {
-    console.log('app is running...');
+app.get('/views/settings.html', authMiddleware, (req, res) => {
+    res.sendFile(path.join(__dirname, '../views/settings.html'));
 });
- */
+
+// Resto de las rutas
+app.use(express.static(path.join(__dirname, '../frontend')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/views/index.html'));
+});
+
+app.use(routes);
 
 
 const mongoUrl = process.env.MONGO_URL;

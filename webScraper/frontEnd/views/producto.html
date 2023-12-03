@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./../assets/allProducts.css">
     <title>Web Scraping App</title>
-    <script type="module" src="./../js/products.js"></script>
     <script type="module">import {addProduct} from "./../js/products.js";</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
@@ -26,6 +25,8 @@
     <div id="mainMenu">
         <button onclick="myFunctionP()">Productos</button>
         <button onclick="myFunction()">Buscar Amigos</button>
+        <button>Ajustes</button>
+        <button id="logout">Log out</button>
     </div>
     <div id ="body">
         <div class = "agregar">      
@@ -50,6 +51,6 @@
     <footer>
         <p>&copy; 2023 Web Scraping App</p>
     </footer>
-    
+    <script type="module" src="./../js/products.js"></script>
 </body>
 </html>

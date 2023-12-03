@@ -88,6 +88,13 @@ class UserController {
     }
 
 
+    logout = async (req, res) => {
+ 
+        res.cookie("jwt", '');
+        res.redirect('/');
+    }
+
+
     fetchUserInfo = async (req, res) => {
         try {
             const user = res.locals.user;
@@ -141,9 +148,6 @@ class UserController {
         res.send([]);
     }
 
-    delete(req, res) {
-        res.send([]);
-    }
 
     updateProfile = async (req, res) => {
         try {
