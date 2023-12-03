@@ -37,9 +37,9 @@ app.get('/products', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/views/producto.html'));
 });
 
-app.get('/views/settings.html', authMiddleware, (req, res) => {
+/*app.get('/views/settings.html', authMiddleware, (req, res) => {
     res.sendFile(path.join(__dirname, '../views/settings.html'));
-});
+});*/
 
 // Resto de las rutas
 app.use(express.static(path.join(__dirname, '../frontend')));

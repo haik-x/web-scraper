@@ -73,11 +73,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                 }
             });
 
+            $('#cancel-btn').on('click', function () {
+                location.assign('./../views/producto.html');
+            })
+
         } else if (response.status === 401) {
             // Redirect to the login page if the user is not authenticated
-            window.location.href = '/login';
+            window.location.href = '/';
         } else {
-            // Handle other status codes if needed
             console.error('Unexpected status code:', response.status);
         }
 
