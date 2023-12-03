@@ -27,12 +27,12 @@ class UserController {
         };
 
         if (err.message === "incorrect password") {
-            errors.email = 'Invalid email or password';
+            errors.email = 'Correo o contraseña incorrectos';
         } else if (err.code === 11000) {
-            errors.email = 'This email is already in use';
+            errors.email = 'Este correo ya está en uso';
         } else {
             // Handle other types of errors with a generic message
-            errors.email = 'An error occurred. Please try again.';
+            errors.email = 'Occurió un error. Por favor inténtelo de nuevo';
         }
 
         return errors;
@@ -152,7 +152,6 @@ class UserController {
     updateProfile = async (req, res) => {
         try {
 
-            console.log("This is my:", req.body);
             const { name, username, email, biography, birth, country, phone, webpage, twitter, tiktok, instagram} = req.body;
 
             // Construct the update object based on what fields are present
@@ -173,9 +172,9 @@ class UserController {
                 const imagePath = '/uploads/' + req.file.filename; // Adjust this based on your storage setup
                 updateObject.profileImage = imagePath;
             }
-            console.log("Update back", updateObject);
+
             // Update user information
-            const userId = res.locals.user; // Assuming you set req.user in your auth middleware
+            const userId = res.locals.user; 
             const updatedUser = await model.findByIdAndUpdate(userId, updateObject, { new: true });
 
             res.status(200).json({ user: updatedUser });
@@ -188,7 +187,6 @@ class UserController {
     addFriend = async (req, res) => {
         try {
             const { friendEmail } = req.body;
-            console.log("This is my test:", friendEmail);
             // Update user information
             const userId = res.locals.user; // Assuming you set req.user in your auth middleware
             const userObject = await model.find({'email': userId.email});

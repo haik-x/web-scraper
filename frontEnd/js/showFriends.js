@@ -6,8 +6,6 @@ import {
 
 ////
  
-
-
 $(document).ready(() =>{
     getFriends().then((value) => {
         console.log(value);
