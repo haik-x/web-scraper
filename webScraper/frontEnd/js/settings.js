@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const response = await fetch('/user/settings');
         if (response.status === 200) {
             const userData = await response.json();
-            // Update the DOM with user-specific content
+            // Update the DOM
             $('#username').val(userData.username || '');
             $('#name').val(userData.name || '');
             $('#email').val(userData.email || '');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
 
             $('#user-settings-form').on('submit', async function (e) {
-                e.preventDefault(); 
+                e.preventDefault();
                 console.log("Hola")
 
                 const formData = new FormData(this);

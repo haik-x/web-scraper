@@ -47,7 +47,25 @@ export async function loginUser(email, password) {
     }
 }
 
-
+export async function logoutUser() {
+    try {
+        const response = await $.ajax({
+            type: 'GET',
+            url: 'http://localhost:3000/user/logout'
+        });
+        if (response) {
+            return response;
+        } else {
+            throw new Error('Unexpected response from the server');
+        }
+    } catch (error) {
+        if (error.responseJSON && error.responseJSON.errors) {
+            throw error.responseJSON.errors;
+        } else {
+            throw error;
+        }
+    }
+}
 
 
 export async function updateUser(formData) {
