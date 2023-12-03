@@ -19,16 +19,16 @@
         </script>
 </head>
 <body>
-    <div class="header">
-        <h1>Web Scraping App</h1>
-    </div>
-    <div id="mainMenu">
-        <button onclick="myFunctionP()" class="navBar">Productos</button>
-        <button onclick="myFunction()" class="navBar">Buscar Amigos</button>
-        <button>Ajustes</button>
-        <button id="logout">Log out</button>
+    <h1>
+        <img src="./../assets/images/SCR-20231112-oqwn.png" alt="" id="scrapyImg">
+        <div class="mainMenu">
+            <button id="logout" class="navBar">Log out</button>
+            <button class="navBar">Ajustes</button>
+            <button onclick="myFunction()" class="navBar" href="#newFriends">Buscar Amigos</button>
+            <button onclick="myFunctionP()" class="navBar">Productos</button>
 
-    </div>
+        </div>
+    </h1>
     <div id ="body">
         <div class = "agregar">      
             <div class="tituloAgregar"> 
@@ -48,10 +48,10 @@
         <div class = "galeria" id = "baseGalery">
         </div>
     </div>
-
     <footer>
         <p>&copy; 2023 Web Scraping App</p>
     </footer>
-    <script type="module" src="./../js/products.js"></script>
 </body>
+
+    <script type="module" src="./../js/products.js"></script>
 </html>

@@ -1,16 +1,42 @@
 h1 {
-    color: white;
+    text-decoration: none;
+    background-color: white;
     text-align: center;
     padding: 10px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+
+    margin-top: 0;
+    height: 60px;
+    box-shadow: var(--box-shadow);
+}
+
+.navBar{
+    background:none;
+    height: 50px;
+    width: 90px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--c-dark);
+    float: right;
+}
+#scrapyImg{
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content:left;
+    align-items:baseline;
+    margin-left: 7%;
 }
 
 body{
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(75,14,154,1) 35%, rgba(0,212,255,1) 100%);
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(./images/home.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 #people{
@@ -30,9 +56,7 @@ body{
 .infoDiv {
     margin-bottom: 5px;
     width: 200px;
-    display: flex;
-    justify-content:left;
-    align-items:baseline;
+       
 }
 
 .person {
@@ -53,15 +77,15 @@ body{
     background:none;
     height: 50px;
     width: 90px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--c-dark);
+    float: right;
 }
 
-.navBar:hover {
-    background-color: #6fc5ff;
-    box-shadow: 0 0 20px #6fc5ff50;
-    transform: scale(1.1);
-}
 
-button {
+#body button {
     padding: 1px;
     margin-right: 20px;
     border: 0;
@@ -75,11 +99,11 @@ button {
     width: 80px;
   }
 
-button:hover {
+#body button:hover {
     transform: scale(1.1);
   }
   
-button:active {
+#body button:active {
     background-color: #3d94cf;
     transition: all 0.25s;
     -webkit-transition: all 0.25s;
@@ -138,10 +162,10 @@ a {
 }
 
 footer {
-    color: white;
+    text-decoration: none;
+    color: var(--c-brand);
     text-align: center;
     padding: 10px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    box-shadow: var(--box-shadow);
+    background-color: white;
 }
