@@ -32,11 +32,6 @@ $(document).ready(() =>{
                     person.innerHTML = entry.email;
                     infoDiv.appendChild(person);
 
-                    const brSimple03 = document.createElement("br");
-                    infoDiv.appendChild(brSimple03);
-
-                    const brSimple05 = document.createElement("br");
-                    infoDiv.appendChild(brSimple05);
 
             const actionsDiv = document.createElement("div");
             actionsDiv.setAttribute("class", "actionsDiv");
@@ -64,6 +59,7 @@ $(document).ready(() =>{
                     location.reload(true);
                     });
  */
+
         });
       });
 

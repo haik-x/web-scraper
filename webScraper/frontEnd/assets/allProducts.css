@@ -31,10 +31,20 @@ button {
     margin-top: 80px;
     margin-left: 18%;
 }
-  
-button:hover {
+
+.navBar{
+    background:none;
+    height: 50px;
+    width: 90px;
+}
+
+.navBar:hover {
     background-color: #6fc5ff;
     box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+  
+button:hover {
     transform: scale(1.1);
   }
   
@@ -131,7 +141,6 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
