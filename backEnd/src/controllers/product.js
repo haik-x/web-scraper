@@ -56,7 +56,7 @@ class ProductController{
         const { link } = req.body;
         const { user } = req.user;
 
-        const secondApiUrl = 'http://localhost:4000/api/product';
+        const secondApiUrl = 'https://scrape-microservice.onrender.com/api/product';
 
         try {
             const response = await axios.post(secondApiUrl, {
