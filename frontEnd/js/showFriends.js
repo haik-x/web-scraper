@@ -43,8 +43,11 @@ $(document).ready(() =>{
             
                 addOption.addEventListener('click', (event) => {
                     /////////
-                        const gra = event.currentTarget.attributes.email.value;
-                        addFriend(event.currentTarget.attributes.email.value);
+                        //const gra = event.currentTarget.attributes.email.value;
+                        addFriend(event.currentTarget.attributes.email.value).then(
+                            function () {
+                                location.reload(true);
+                            });
                     });
 /*
                 const deleteFriend = document.createElement("button");

@@ -156,7 +156,6 @@ body{
     border-radius: 20px;
     margin-top: 5%;
     width: 64%;
-    height: 350px;
     background-color: white;
     padding: 50px;
     text-align: center;
@@ -185,8 +184,6 @@ footer {
     box-shadow: var(--box-shadow);
     background-color: white;
     position: absolute;
-    bottom: 0;
     width: 100%;
     height: 60px;
-    line-height: 60px;
 }
