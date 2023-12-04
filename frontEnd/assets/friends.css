@@ -22,6 +22,8 @@ h1 {
     font-size: 18px;
     color: var(--c-dark);
     float: right;
+    border-color: transparent;
+    margin-right: 30px;
 }
 #scrapyImg{
     height: auto;
@@ -68,10 +70,6 @@ body{
     margin-bottom: 20px;
 }
 
-#mainMenu {
-    margin-top: 80px;
-    margin-left: 18%;
-}
 
 .navBar{
     background:none;
@@ -82,6 +80,24 @@ body{
     font-size: 18px;
     color: var(--c-dark);
     float: right;
+    border-color: transparent;
+    margin-right: 30px;
+}
+
+.mainMenu {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between; 
+
+}
+
+.logoContainer {
+    margin-right: 20px; 
+}
+
+.buttonContainer {
+    display: flex; 
+    z-index: 1;
 }
 
 
@@ -135,12 +151,12 @@ body{
 #amigo {
     margin-bottom: 30px;
 }
-
 #body{
     margin-left: 15%;
     border-radius: 20px;
-    margin-top: 60px;
+    margin-top: 5%;
     width: 64%;
+    height: 350px;
     background-color: white;
     padding: 50px;
     text-align: center;
@@ -168,4 +184,9 @@ footer {
     padding: 10px;
     box-shadow: var(--box-shadow);
     background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
 }
