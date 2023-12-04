@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             $('#twitter').val(userData.twitter || '');
             $('#tiktok').val(userData.tiktok || '');
             $('#instagram').val(userData.instagram || '');
-            $('#p-img').attr('src', userData.profileImage ? 'https://scraper-back.onrender.com' + userData.profileImage : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png");
+            $('#p-img').attr('src', userData.profileImage ? 'http://localhost:3000' + userData.profileImage : "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-6.png");
 
             $('#profile-img').on('change', function (e) {
                 const fileInput = e.target;

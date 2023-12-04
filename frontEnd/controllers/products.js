@@ -7,7 +7,7 @@ export async function getProducts(includeFriends) {
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'GET',
-            url: 'https://scraper-back.onrender.com/product/user' + includeParam
+            url: 'http://localhost:3000/product/user' + includeParam
         });
         return response; // might want to return something late (?)
     } catch (error) {
@@ -27,7 +27,7 @@ export async function addProduct(data) {
             dataType: 'json',
             processData: false,
             type: 'POST',
-            url: 'https://scraper-back.onrender.com/product'
+            url: 'http://localhost:3000/product'
         });
         return response;
     } catch (error) {
@@ -45,7 +45,7 @@ export async function deleteProduct(id) {
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'DELETE',
-            url: 'https://scraper-back.onrender.com/product/' + id
+            url: 'http://localhost:3000/product/' + id
         });
         return response; // might want to return something late (?)
     } catch (error) {
@@ -63,7 +63,7 @@ export async function updateProduct(id) {
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'PUT',
-            url: 'https://scraper-back.onrender.com/product/' + id
+            url: 'http://localhost:3000/product/' + id
         });
         return response;
     } catch (error) {

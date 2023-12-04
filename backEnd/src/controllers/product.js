@@ -56,7 +56,7 @@ class ProductController{
         const { link } = req.body;
         const { user } = req.user;
 
-        const secondApiUrl = 'https://scrape-microservice.onrender.com/api/product';
+        const secondApiUrl = 'http://localhost:4000/api/product';
 
         try {
             const response = await axios.post(secondApiUrl, {
@@ -98,10 +98,10 @@ class ProductController{
         const productToUpdate = await scraper.doRequest(firstModel.link, firstModel.price, firstModel.original_price, firstModel.discount);
 
         const respUpdate = await model.updateOne({"_id": new ObjectId(idToUpdate)}, 
-        {name: productToUpdate.nombreProducto,
-            price: Number(productToUpdate.precio) ,
-            discount: productToUpdate.descuento,
-            original_price: productToUpdate.precioAnterior,
+        {name: productToUpdate.name,
+            price: Number(productToUpdate.price) ,
+            discount: productToUpdate.discount,
+            original_price: productToUpdate.original_price,
             link: productToUpdate.link,
             image: productToUpdate.linkImg,
         });

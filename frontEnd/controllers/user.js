@@ -6,7 +6,7 @@ export async function createUser(data) {
             dataType: 'json',
             processData: false,
             type: 'POST',
-            url: 'https://scraper-back.onrender.com/user'
+            url: 'http://localhost:3000/user'
         });
         return response;
     } catch (error) {
@@ -24,7 +24,7 @@ export async function loginUser(email, password) {
     try {
         const response = await $.ajax({
             type: 'POST',
-            url: 'https://scraper-back.onrender.com/user/login',
+            url: 'http://localhost:3000/user/login',
             contentType: 'application/json',
             data: JSON.stringify({
                 email,
@@ -50,7 +50,7 @@ export async function logoutUser() {
     try {
         const response = await $.ajax({
             type: 'GET',
-            url: 'https://scraper-back.onrender.com/user/logout'
+            url: 'http://localhost:3000/user/logout'
         });
         if (response) {
             return response;
@@ -72,7 +72,7 @@ export async function updateUser(formData) {
     for (const entry of formData.entries()) {
         console.log(entry);
     }
-    const response = await fetch('https://scraper-back.onrender.com/user/update', {
+    const response = await fetch('http://localhost:3000/user/update', {
         method: 'PUT',
         body: formData,
     });
@@ -106,7 +106,7 @@ export async function addFriend(email) {
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'POST',
-            url: 'https://scraper-back.onrender.com/user/addfriend',
+            url: 'http://localhost:3000/user/addfriend',
             data: JSON.stringify({
                 'friendEmail': email
             }),

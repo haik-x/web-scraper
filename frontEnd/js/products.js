@@ -84,7 +84,7 @@ function getAllProducts(includeFriends) {
 
             const span02 = document.createElement("span");
             span02.classList.add("descuento");
-            span02.innerHTML = "Descuento " + entry.descuento + " %";
+            span02.innerHTML = "Precio anterior: $" + (entry.precioAnterior ? entry.precioAnterior : entry.precio);
             infoDiv.appendChild(span02);
 
             const brSimple03 = document.createElement("br");
