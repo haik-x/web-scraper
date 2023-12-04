@@ -89,7 +89,7 @@ export async function getFriends() {
         const response = await $.ajax({
             contentType: 'application/json',
             type: 'GET',
-            url: 'https://scraper-back.onrender.com/users'
+            url: 'http://localhost:3000/users'
         });
         return response;
     } catch (error) {
