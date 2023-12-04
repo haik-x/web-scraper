@@ -100,7 +100,7 @@ function getAllProducts(includeFriends) {
             if (!entry.email) {
                 const updateOption = document.createElement("button");
                 updateOption.setAttribute("id", "botonUpdate");
-                updateOption.innerHTML = "Update";
+                updateOption.innerHTML = "Actualizar";
                 actionsDiv.appendChild(updateOption);
                 updateOption.addEventListener('click', async (event) => {
                     await updateProduct(event.currentTarget.parentElement.parentElement.id);
@@ -109,7 +109,7 @@ function getAllProducts(includeFriends) {
 
                 const deleteOption = document.createElement("button");
                 deleteOption.setAttribute("id", "botonDelete");
-                deleteOption.innerHTML = "Delete";
+                deleteOption.innerHTML = "Borrar";
                 actionsDiv.appendChild(deleteOption);
                 deleteOption.addEventListener('click', (event) => {
                     deleteProduct(event.currentTarget.parentElement.parentElement.id);
