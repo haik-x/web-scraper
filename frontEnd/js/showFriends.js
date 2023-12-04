@@ -1,7 +1,7 @@
 //dbo.collection("customers").find({}, { projection: { _id: 0, name: 1, address: 1 } }).toArray(function(err, result) {
 
 import {
-    getFriends, addFriend
+    getFriends, addFriend, logoutUser
 } from '../controllers/user.js';
 
 ////
@@ -63,5 +63,18 @@ $(document).ready(() =>{
 
         });
       });
+      $('#logout').on('click', async function () {
+        try {
+            const responseData = await logoutUser();
+            console.log('Logout successful:', responseData);
+            window.location.href = '/';
+        } catch (error) {
+            console.log("Unexpected error structure received from the server:", error);
+        }
+    });
+    $('#settings').on('click', async function () {
+        window.location.href = '/views/settings.html';
+    });
+    getAllProducts(false);
 
 })
